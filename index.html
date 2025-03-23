@@ -73,10 +73,10 @@
             max-height: 160px; /* Larger max-height for cat images */
         }
 
-        /* Dazai Images Resizing */
+        /* Dazai Images Resizing (made bigger) */
         .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
-            max-width: 100px; /* Smaller max-width for Dazai images */
-            max-height: 100px; /* Smaller max-height for Dazai images */
+            max-width: 150px; /* Bigger max-width for Dazai images */
+            max-height: 150px; /* Bigger max-height for Dazai images */
         }
 
         /* Cat Images Positioning */
@@ -123,77 +123,6 @@
         .start-button:hover {
             background-color: #e65a50;
         }
-
-        /* Book Design */
-        .book-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .book {
-            position: relative;
-            width: 50vw;
-            height: 60vh;
-            perspective: 1500px;
-        }
-
-        .cover, .page {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            transition: transform 1s ease;
-        }
-
-        .cover {
-            background-color: #8d6e63;
-            z-index: 10;
-        }
-
-        .page {
-            background-color: #fff3e0;
-            z-index: 5;
-        }
-
-        .cover.turn, .page.turn {
-            transform: rotateY(180deg);
-        }
-
-        @keyframes bookOpen {
-            100% { transform: rotateY(180deg); }
-        }
-
-        /* Ensure Dazai images stay at the edges */
-        .dazai-left1, .dazai-left2 {
-            position: absolute;
-            left: 0.2cm;
-        }
-
-        .dazai-right1, .dazai-right2 {
-            position: absolute;
-            right: 0.2cm;
-        }
-
-        /* For smaller screens */
-        @media (max-width: 600px) {
-            /* Cat images resizing for mobile */
-            .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
-                max-width: 100px;  /* Resize cats for smaller screens */
-                max-height: 100px;
-            }
-
-            /* Dazai images resizing for mobile */
-            .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
-                max-width: 80px;  /* Resize Dazai for smaller screens */
-                max-height: 80px;
-                left: 10%; /* Adjusted left for smaller screens */
-                right: 10%; /* Adjusted right for smaller screens */
-            }
-        }
     </style>
 </head>
 <body>
@@ -225,19 +154,6 @@
         <button class="start-button">Start</button>
     </div>
 
-    <!-- Book Container -->
-    <div id="book-container" class="book-container">
-        <div class="book">
-            <div class="cover"></div>
-            <div class="page turn"></div>
-            <div class="page turn"></div>
-            <div class="page turn"></div>
-            <div class="page turn"></div>
-            <div class="page turn"></div>
-            <div class="page turn"></div>
-        </div>
-    </div>
-
     <script>
         setTimeout(() => {
             document.getElementById('preloader1').style.display = 'none';
@@ -251,10 +167,6 @@
 
         document.querySelector('.start-button').addEventListener('click', () => {
             document.getElementById('home-page').style.display = 'none';
-            document.getElementById('book-container').style.display = 'flex';
-            setTimeout(() => {
-                document.querySelector('.cover').classList.add('turn');
-            }, 1000);
         });
     </script>
 </body>
