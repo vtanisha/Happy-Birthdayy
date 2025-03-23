@@ -6,124 +6,135 @@
     <title>Happy Birthday Anushka!</title>
     <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Pacifico&family=Lobster&family=Satisfy&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: 'Satisfy', cursive;
-            background: #fce4d6; /* Warm & Cozy Theme */
-            overflow: hidden;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+    /* General Styles */
+    body {
+        margin: 0;
+        font-family: 'Satisfy', cursive;
+        background: #fce4d6; /* Warm & Cozy Theme */
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Preloader Styles */
+    .preloader {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+        background: url('doodlebg.png') center/cover no-repeat;
+    }
+
+    .preloader h1 {
+        font-size: 3em;
+        font-family: 'Fascinate Inline', cursive;
+        color: #ff6f61;
+        text-align: center;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Walls for Peeking Effect */
+    .wall {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0.5cm;
+        background-color: #ff6f61;
+    }
+
+    .left-wall { left: 0; }
+    .right-wall { right: 0; }
+
+    /* Peeking Cats & Dazai */
+    .peek-image {
+        position: absolute;
+        width: auto;
+        height: auto;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    /* Cat Images Resizing */
+    .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
+        max-width: 160px;  /* Larger max-width for cat images */
+        max-height: 160px; /* Larger max-height for cat images */
+    }
+
+    /* Dazai Images Resizing (made bigger) */
+    .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
+        max-width: 150px; /* Bigger max-width for Dazai images */
+        max-height: 150px; /* Bigger max-height for Dazai images */
+    }
+
+    /* Cat Images Positioning */
+    .cat-left1 { top: 15%; left: 0.2cm; }
+    .cat-left2 { top: 65%; left: 0.2cm; }
+    .cat-right1 { top: 20%; right: 0.2cm; }
+    .cat-right2 { top: 70%; right: 0.2cm; }
+
+    /* Adjusted Dazai positions to match cats on the edges */
+    .dazai-left1 { top: 5%; left: 0.2cm; }
+    .dazai-left2 { top: 55%; left: 0.2cm; }
+    .dazai-right1 { top: 10%; right: 0.2cm; }
+    .dazai-right2 { top: 50%; right: 0.2cm; }
+
+    /* Media Query for Mobile Devices */
+    @media screen and (max-width: 768px) {
+        .dazai-left2 {
+            top: 65%; /* Move the bottom Dazai a little more down */
         }
-
-        /* Preloader Styles */
-        .preloader {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 10;
-            background: url('doodlebg.png') center/cover no-repeat;
+        .dazai-right2 {
+            top: 60%; /* Move the bottom Dazai a little more down */
         }
+    }
 
-        .preloader h1 {
-            font-size: 3em;
-            font-family: 'Fascinate Inline', cursive;
-            color: #ff6f61;
-            text-align: center;
-            max-width: 80%;
-            margin: 0 auto;
-        }
+    /* Love You So Much Nusha Page */
+    #home-page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-        /* Walls for Peeking Effect */
-        .wall {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 0.5cm;
-            background-color: #ff6f61;
-        }
+    #home-page h1 {
+        font-size: 3em;
+        font-family: 'Fascinate Inline', cursive;
+        color: #ff6f61;
+    }
 
-        .left-wall { left: 0; }
-        .right-wall { right: 0; }
+    .start-button {
+        font-family: 'Pacifico', cursive;
+        font-size: 1.5em;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
-        /* Peeking Cats & Dazai */
-        .peek-image {
-            position: absolute;
-            width: auto;
-            height: auto;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }
+    .start-button:hover {
+        background-color: #e65a50;
+    }
+</style>
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Cat Images Resizing */
-        .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
-            max-width: 160px;  /* Larger max-width for cat images */
-            max-height: 160px; /* Larger max-height for cat images */
-        }
-
-        /* Dazai Images Resizing (made bigger) */
-        .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
-            max-width: 150px; /* Bigger max-width for Dazai images */
-            max-height: 150px; /* Bigger max-height for Dazai images */
-        }
-
-        /* Cat Images Positioning */
-        .cat-left1 { top: 15%; left: 0.2cm; }
-        .cat-left2 { top: 65%; left: 0.2cm; }
-        .cat-right1 { top: 20%; right: 0.2cm; }
-        .cat-right2 { top: 70%; right: 0.2cm; }
-
-        /* Adjusted Dazai positions to match cats on the edges */
-        .dazai-left1 { top: 5%; left: 0.2cm; }
-        .dazai-left2 { top: 55%; left: 0.2cm; }
-        .dazai-right1 { top: 10%; right: 0.2cm; }
-        .dazai-right2 { top: 50%; right: 0.2cm; }
-
-        /* Love You So Much Nusha Page */
-        #home-page {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        #home-page h1 {
-            font-size: 3em;
-            font-family: 'Fascinate Inline', cursive;
-            color: #ff6f61;
-        }
-
-        .start-button {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.5em;
-            color: white;
-            background-color: #ff6f61;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .start-button:hover {
-            background-color: #e65a50;
-        }
-    </style>
 </head>
 <body>
     <!-- Preloader 1 -->
