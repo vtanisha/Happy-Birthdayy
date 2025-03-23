@@ -3,74 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dazai and Cats</title>
+    <title>Happy Birthday Anushka!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Pacifico&family=Lobster&family=Satisfy&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
             margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-color: #f0f0f0;
-            position: relative;
+            font-family: 'Satisfy', cursive;
+            background: #fce4d6; /* Warm & Cozy Theme */
             overflow: hidden;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .cat, .dazai {
+
+        /* Preloader Styles */
+        .preloader {
             position: absolute;
-            transition: all 0.3s ease;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            background: url('doodlebg.png') center/cover no-repeat;
         }
-        .cat-left-1 {
-            top: 15%;
-            left: 0.2cm;
+
+        .preloader h1 {
+            font-size: 3em;
+            font-family: 'Fascinate Inline', cursive;
+            color: #ff6f61;
+            text-align: center;
+            max-width: 80%;
+            margin: 0 auto;
         }
-        .cat-left-2 {
-            top: 65%;
-            left: 0.2cm;
+
+        /* Walls for Peeking Effect */
+        .wall {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 0.5cm;
+            background-color: #ff6f61;
         }
-        .cat-right-1 {
-            top: 20%;
-            right: 0.2cm;
+
+        .left-wall { left: 0; }
+        .right-wall { right: 0; }
+
+        /* Peeking Cats & Dazai */
+        .peek-image {
+            position: absolute;
+            width: auto;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
         }
-        .cat-right-2 {
-            top: 70%;
-            right: 0.2cm;
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-        /* Dazai - Same positions as Cats */
-        .dazai-left-1 {
-            top: 15%;
-            left: 0.2cm;
+
+        /* Cat Images Resizing */
+        .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
+            max-width: 160px;  /* Larger max-width for cat images */
+            max-height: 160px; /* Larger max-height for cat images */
         }
-        .dazai-left-2 {
-            top: 65%;
-            left: 0.2cm;
+
+        /* Dazai Images Resizing (made bigger) */
+        .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
+            max-width: 150px; /* Bigger max-width for Dazai images */
+            max-height: 150px; /* Bigger max-height for Dazai images */
         }
-        .dazai-right-1 {
-            top: 20%;
-            right: 0.2cm;
+
+        /* Cat Images Positioning */
+        .cat-left1 { top: 15%; left: 0.2cm; }
+        .cat-left2 { top: 65%; left: 0.2cm; }
+        .cat-right1 { top: 20%; right: 0.2cm; }
+        .cat-right2 { top: 70%; right: 0.2cm; }
+
+        /* Adjusted Dazai positions to match cats on the edges */
+        .dazai-left1 { top: 5%; left: 0.2cm; }
+        .dazai-left2 { top: 55%; left: 0.2cm; }
+        .dazai-right1 { top: 10%; right: 0.2cm; }
+        .dazai-right2 { top: 50%; right: 0.2cm; }
+
+        /* Love You So Much Nusha Page */
+        #home-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        .dazai-right-2 {
-            top: 70%;
-            right: 0.2cm;
+
+        #home-page h1 {
+            font-size: 3em;
+            font-family: 'Fascinate Inline', cursive;
+            color: #ff6f61;
         }
-        /* Phone responsive styling */
-        @media (max-width: 768px) {
-            .dazai-left-1, .dazai-left-2, .dazai-right-1, .dazai-right-2 {
-                top: 20%;
-            }
+
+        .start-button {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .start-button:hover {
+            background-color: #e65a50;
         }
     </style>
 </head>
 <body>
+    <!-- Preloader 1 -->
+    <div id="preloader1" class="preloader">
+        <div class="wall left-wall"></div>
+        <div class="wall right-wall"></div>
+        <h1>Happy Birthday Anushka!</h1>
+        <img src="cat-left1.png" class="peek-image cat-left1">
+        <img src="cat-left2.png" class="peek-image cat-left2">
+        <img src="cat-right1.png" class="peek-image cat-right1">
+        <img src="cat-right2.png" class="peek-image cat-right2">
+    </div>
 
-    <!-- Cats -->
-    <img src="cat1.png" alt="Cat 1" class="cat cat-left-1">
-    <img src="cat2.png" alt="Cat 2" class="cat cat-left-2">
-    <img src="cat3.png" alt="Cat 3" class="cat cat-right-1">
-    <img src="cat4.png" alt="Cat 4" class="cat cat-right-2">
+    <!-- Preloader 2 -->
+    <div id="preloader2" class="preloader" style="display: none;">
+        <div class="wall left-wall"></div>
+        <div class="wall right-wall"></div>
+        <h1>15 years old?! I swear you were four just two days ago.</h1>
+        <img src="dazai-left1.png" class="peek-image dazai-left1">
+        <img src="dazai-left2.png" class="peek-image dazai-left2">
+        <img src="dazai-right1.png" class="peek-image dazai-right1">
+        <img src="dazai-right2.png" class="peek-image dazai-right2">
+    </div>
 
-    <!-- Dazai -->
-    <img src="dazai.png" alt="Dazai 1" class="dazai dazai-left-1">
-    <img src="dazai.png" alt="Dazai 2" class="dazai dazai-left-2">
-    <img src="dazai.png" alt="Dazai 3" class="dazai dazai-right-1">
-    <img src="dazai.png" alt="Dazai 4" class="dazai dazai-right-2">
+    <!-- Love You So Much Nusha Page -->
+    <div id="home-page">
+        <h1>Love you so much, Nusha</h1>
+        <button class="start-button">Start</button>
+    </div>
 
+    <script>
+        setTimeout(() => {
+            document.getElementById('preloader1').style.display = 'none';
+            document.getElementById('preloader2').style.display = 'flex';
+        }, 5000);
+
+        setTimeout(() => {
+            document.getElementById('preloader2').style.display = 'none';
+            document.getElementById('home-page').style.display = 'flex';
+        }, 10000);
+
+        document.querySelector('.start-button').addEventListener('click', () => {
+            document.getElementById('home-page').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
