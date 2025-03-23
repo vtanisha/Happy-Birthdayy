@@ -56,7 +56,7 @@
         /* Peeking Cats & Dazai */
         .peek-image {
             position: absolute;
-            width: 120px;
+            width: auto;
             height: auto;
             animation: float 3s ease-in-out infinite;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
@@ -65,6 +65,18 @@
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
+        }
+
+        /* Cat Images Resizing */
+        .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
+            max-width: 160px;  /* Larger max-width for cat images */
+            max-height: 160px; /* Larger max-height for cat images */
+        }
+
+        /* Dazai Images Resizing */
+        .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
+            max-width: 100px; /* Smaller max-width for Dazai images */
+            max-height: 100px; /* Smaller max-height for Dazai images */
         }
 
         .cat-left1 { top: 15%; left: 0.2cm; }
@@ -167,20 +179,16 @@
 
         /* For smaller screens */
         @media (max-width: 600px) {
-            .peek-image {
-                width: 60px;
+            /* Cat images resizing for mobile */
+            .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
+                max-width: 100px;  /* Resize cats for smaller screens */
+                max-height: 100px;
             }
 
+            /* Dazai images resizing for mobile */
             .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
-                bottom: auto;
-                top: 10%;
-            }
-
-            #preloader2 h1 {
-                font-size: 2.2em;
-                max-width: 80%;
-                text-align: center;
-                margin: 0 auto;
+                max-width: 80px;  /* Resize Dazai for smaller screens */
+                max-height: 80px;
             }
         }
     </style>
