@@ -10,7 +10,7 @@
         body {
             margin: 0;
             font-family: 'Satisfy', cursive;
-            background: #fce4ec; /* Soft pastel pink */
+            background: #fce4d6 url('doodlebg.png') center/cover no-repeat; /* Restored background */
             overflow: hidden;
             text-align: center;
             display: flex;
@@ -55,10 +55,19 @@
         /* Peeking Cats & Dazai */
         .peek-image {
             position: absolute;
-            width: 160px; /* Increased cat size */
-            height: auto; /* Maintain aspect ratio */
+            height: auto;
             animation: float 3s ease-in-out infinite;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Cats are now bigger */
+        .cat-left1, .cat-left2, .cat-right1, .cat-right2 {
+            width: 140px;
+        }
+
+        /* Dazai stays the same size */
+        .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
+            width: 120px;
         }
 
         @keyframes float {
@@ -66,17 +75,16 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Adjusted cat positions */
-        .cat-left1 { top: 10%; left: 0.2cm; }
-        .cat-left2 { top: 55%; left: 0.2cm; }
-        .cat-right1 { top: 15%; right: 0.2cm; }
-        .cat-right2 { top: 60%; right: 0.2cm; }
+        .cat-left1 { top: 15%; left: -10px; }
+        .cat-left2 { top: 65%; left: -10px; }
+        .cat-right1 { top: 20%; right: -10px; }
+        .cat-right2 { top: 70%; right: -10px; }
 
-        /* Adjusted Dazai positions */
-        .dazai-left1 { top: 10%; left: -5px; transform: translateX(-10%); }
-        .dazai-left2 { top: 60%; left: -5px; transform: translateX(-10%); }
-        .dazai-right1 { top: 15%; right: -5px; transform: translateX(10%); }
-        .dazai-right2 { top: 65%; right: -5px; transform: translateX(10%); }
+        /* Adjusted Dazai positioning */
+        .dazai-left1 { top: 35%; left: -10px; }
+        .dazai-left2 { top: 75%; left: -10px; }
+        .dazai-right1 { top: 35%; right: -10px; }
+        .dazai-right2 { top: 75%; right: -10px; }
 
         /* Love You So Much Nusha Page */
         #home-page {
@@ -154,25 +162,24 @@
             100% { transform: rotateY(180deg); }
         }
 
-        /* For smaller screens */
+        /* Responsive fixes */
         @media (max-width: 600px) {
             .peek-image {
-                width: 100px; /* Scale down images for smaller screens */
+                width: 80px;
             }
 
             .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
-                bottom: auto;
-                top: 15%; /* Adjust positioning */
+                top: auto;
+                bottom: 5%;
             }
 
             #preloader2 h1 {
-                font-size: 2.2em; /* Reduce size */
+                font-size: 2.2em;
                 max-width: 80%;
                 text-align: center;
                 margin: 0 auto;
             }
         }
-
     </style>
 </head>
 <body>
@@ -191,7 +198,7 @@
     <div id="preloader2" class="preloader" style="display: none;">
         <div class="wall left-wall"></div>
         <div class="wall right-wall"></div>
-        <h1>15 already?! I swear you were four just two days ago.</h1>
+        <h1>15 years old?! I swear you were four just two days ago.</h1>
         <img src="dazai-left1.png" class="peek-image dazai-left1">
         <img src="dazai-left2.png" class="peek-image dazai-left2">
         <img src="dazai-right1.png" class="peek-image dazai-right1">
