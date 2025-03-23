@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anushka!</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background: #f0f8ff; /* Light pastel blue */
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        /* Preloader 1: Happy Birthday Anushka */
+        #preloader1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            background: url('doodlebg.png') center/cover no-repeat; /* Doodlebg wallpaper */
+        }
+
+        #preloader1 h1 {
+            font-size: 4em;
+            color: #ff6f61; /* Coral pink for text */
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Wall-like Border */
+        .wall {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 0.5cm;
+            background-color: #ff6f61; /* Coral pink */
+        }
+
+        .left-wall { left: 0; }
+        .right-wall { right: 0; }
+
+        /* Cat and Dazai Up-Down Animation */
+        .peek-image {
+            position: absolute;
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3)); /* Subtle shadow */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Left-side Images */
+        .cat-left1 { top: 15%; left: 0.2cm; } /* Moved 0.2cm inside */
+        .cat-left2 { top: 65%; left: 0.2cm; }
+
+        /* Right-side Images */
+        .cat-right1 { top: 20%; right: 0.2cm; } /* Moved 0.2cm inside */
+        .cat-right2 { top: 70%; right: 0.2cm; }
+
+        /* Preloader 2: 15 years old?! */
+        #preloader2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 5;
+            background: url('doodlebg.png') center/cover no-repeat; /* Doodlebg wallpaper */
+        }
+
+        #preloader2 h1 {
+            font-size: 2.5em; /* Smaller font size for compact text */
+            color: #ff6f61; /* Coral pink for text */
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            text-align: center;
+            max-width: 80%; /* Ensure text doesn't overflow */
+            margin: 0 auto; /* Center the text */
+        }
+
+        /* Dazai Images */
+        .dazai-left1 { top: 15%; left: 0.2cm; } /* Moved 0.2cm inside */
+        .dazai-left2 { top: 65%; left: 0.2cm; }
+        .dazai-right1 { top: 20%; right: 0.2cm; } /* Moved 0.2cm inside */
+        .dazai-right2 { top: 60%; right: 0.2cm; }
+
+        /* Home Page */
+        #home-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+            background: #f0f8ff; /* Light pastel blue */
+        }
+
+        #home-page h1 {
+            font-size: 3em;
+            color: #ff6f61; /* Coral pink for text */
+        }
+
+        .start-button {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: white;
+            background-color: #ff6f61; /* Coral pink for the button */
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .start-button:hover {
+            background-color: #e65a50; /* Slightly darker coral pink on hover */
+        }
+
+        /* Digicam Layout */
+        #digicam-layout {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 2;
+            background: #f0f8ff; /* Light pastel blue */
+            padding: 20px;
+        }
+
+        .timeline {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: #2e7d32; /* Matcha green for text */
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .timeline img {
+            width: 150px;
+            margin: 10px 0;
+            border: 5px solid #ff6f61; /* Coral pink border */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader 1: Happy Birthday Anushka -->
+    <div id="preloader1">
+        <!-- Wall-like Borders -->
+        <div class="wall left-wall"></div>
+        <div class="wall right-wall"></div>
+
+        <h1>Happy Birthday Anushka!</h1>
+        <!-- Cats -->
+        <img src="cat-left1.png" class="peek-image cat-left1">
+        <img src="cat-left2.png" class="peek-image cat-left2">
+        <img src="cat-right1.png" class="peek-image cat-right1">
+        <img src="cat-right2.png" class="peek-image cat-right2">
+    </div>
+
+    <!-- Preloader 2: 15 years old?! -->
+    <div id="preloader2">
+        <!-- Wall-like Borders -->
+        <div class="wall left-wall"></div>
+        <div class="wall right-wall"></div>
+
+        <h1>15 years old?! I swear you were four years old just two days ago.</h1>
+        <!-- Dazai -->
+        <img src="dazai-left1.png" class="peek-image dazai-left1">
+        <img src="dazai-left2.png" class="peek-image dazai-left2">
+        <img src="dazai-right1.png" class="peek-image dazai-right1">
+        <img src="dazai-right2.png" class="peek-image dazai-right2">
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page">
+        <h1>Love you so much nusha</h1>
+        <!-- Doodle GIF -->
+        <img src="doodle1.gif" alt="Doodle" style="width: 200px; margin: 20px;">
+        <!-- Start Button -->
+        <button class="start-button">Start</button>
+    </div>
+
+  <!-- Start Page with Book Fading In -->
+<div id="start-page">
+    <div id="book" class="book">
+        <div class="book-page left-page">
+            <p>Page 1 content... (You can add any text or image here)</p>
+        </div>
+        <div class="book-page right-page">
+            <p>Page 2 content... (You can add any text or image here)</p>
+        </div>
+    </div>
+
+    <!-- Final Page with Spotify Song -->
+    <div id="final-page" class="hidden">
+        <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID" width="300" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div id="extra-element">
+            <!-- Your extra element here -->
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Start Page */
+    #start-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f8f8f8;
+        flex-direction: column;
+    }
+
+    /* Book Design */
+    .book {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #f5deb3;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        perspective: 1500px;
+    }
+
+    .book-page {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid #ddd;
+        transition: transform 1s ease;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .book-page p {
+        font-family: 'Times New Roman', serif;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .left-page {
+        left: 0;
+        transform-origin: left center;
+        z-index: 2;
+    }
+
+    .right-page {
+        right: 0;
+        transform-origin: right center;
+        z-index: 1;
+    }
+
+    /* Transition for Page Turning */
+    .turn-left .left-page {
+        transform: rotateY(180deg);
+    }
+
+    .turn-right .right-page {
+        transform: rotateY(180deg);
+    }
+
+    /* Final Page */
+    #final-page {
+        display: none;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #final-page iframe {
+        margin: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    const book = document.getElementById("book");
+    const leftPage = document.querySelector(".left-page");
+    const rightPage = document.querySelector(".right-page");
+    const finalPage = document.getElementById("final-page");
+
+    let currentPage = 1; // Keep track of the current page
+
+    // Page turning on click
+    rightPage.addEventListener("click", () => {
+        if (currentPage === 1) {
+            // Turn page forward
+            book.classList.add("turn-right");
+            currentPage = 2;
+        } else {
+            // Show final page
+            setTimeout(() => {
+                book.style.display = "none";
+                finalPage.style.display = "block";
+            }, 1000); // Wait for animation to finish
+        }
+    });
+
+    leftPage.addEventListener("click", () => {
+        if (currentPage === 2) {
+            // Turn page backward
+            book.classList.add("turn-left");
+            currentPage = 1;
+        }
+    });
+</script>
+
+    <script>
+        // JavaScript to handle preloader transitions
+        setTimeout(() => {
+            document.getElementById('preloader1').style.display = 'none';
+            document.getElementById('preloader2').style.display = 'flex';
+        }, 5000); // Preloader 1 lasts 5 seconds
+
+        setTimeout(() => {
+            document.getElementById('preloader2').style.display = 'none';
+            document.getElementById('home-page').style.display = 'flex';
+        }, 10000); // Preloader 2 lasts 5 seconds
+
+        // Show Digicam Layout on Start Button Click
+        document.querySelector('.start-button').addEventListener('click', () => {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('digicam-layout').style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
