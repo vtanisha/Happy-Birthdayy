@@ -149,6 +149,22 @@
         @keyframes bookOpen {
             100% { transform: rotateY(180deg); }
         }
+        @media (max-width: 600px) {
+    .peek-image {
+        width: 60px; /* Scale down images */
+    }
+    
+    .dazai-left1, .dazai-left2, .dazai-right1, .dazai-right2 {
+        top: auto; /* Adjust positioning */
+        bottom: 10%; /* Move them a bit lower */
+    }
+
+    #preloader2 h1 {
+        font-size: 2em; /* Reduce text size to fit properly */
+        max-width: 70%; /* Keep text within safe width */
+    }
+}
+
     </style>
 </head>
 <body>
