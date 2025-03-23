@@ -53,6 +53,22 @@
             cursor: pointer;
         }
 
+        /* Moving Cats & Dazai */
+        .peek-image {
+            position: absolute;
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        .cat-left1 { top: 15%; left: 0.2cm; }
+        .cat-left2 { top: 65%; left: 0.2cm; }
+        .dazai-right1 { top: 20%; right: 0.2cm; }
+        .dazai-right2 { top: 60%; right: 0.2cm; }
+
         /* Book Animation */
         #book-container { display: none; background: #4F4E68; }
         .book {
@@ -77,9 +93,13 @@
 <body>
     <div id="preloader1">
         <h1>Happy Birthday Anushka!</h1>
+        <img src="cat-left1.png" class="peek-image cat-left1">
+        <img src="cat-left2.png" class="peek-image cat-left2">
     </div>
     <div id="preloader2" style="display: none;">
         <h1>15 years old?! I swear you were four just two days ago.</h1>
+        <img src="dazai-right1.png" class="peek-image dazai-right1">
+        <img src="dazai-right2.png" class="peek-image dazai-right2">
     </div>
     <div id="home-page" style="display: none;">
         <h1>Love you so much, Nusha</h1>
