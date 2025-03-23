@@ -55,10 +55,13 @@
 
         /* Peeking Cats & Dazai */
         .peek-image {
-            position: absolute;
-            width: 100px;
-            animation: float 3s ease-in-out infinite;
-        }
+    position: absolute;
+    width: 120px; /* Adjust based on how big they were */
+    height: auto; /* Maintain aspect ratio */
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
