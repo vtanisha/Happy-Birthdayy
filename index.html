@@ -102,8 +102,6 @@
             /* Adjust font size for '15 years old?!' text on smaller screens */
             #preloader2 h1 {
                 font-size: 2em; /* Decrease the font size for smaller screens */
-
-
             }
         }
 
@@ -140,6 +138,36 @@
         .start-button:hover {
             background-color: #e65a50;
         }
+
+        /* Polaroid container and items layout */
+        .polaroid-container {
+            display: none; /* Hidden by default */
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .polaroid {
+            margin: 10px;
+            width: 300px;
+            height: 300px;
+            background:                     
+            overflow: hidden;
+            
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         
     </style>
 </head>
@@ -172,6 +200,22 @@
         <button class="start-button">Start</button>
     </div>
 
+    <!-- Polaroid Images -->
+    <div class="polaroid-container">
+        <div class="polaroid">
+            <img src="polaroid1.png" alt="Polaroid 1">
+        </div>
+        <div class="polaroid">
+            <img src="polaroid2.png" alt="Polaroid 2">
+        </div>
+        <div class="polaroid">
+            <img src="polaroid3.png" alt="Polaroid 3">
+        </div>
+        <div class="polaroid">
+            <img src="polaroid4.png" alt="Polaroid 4">
+        </div>
+    </div>
+
     <script>
         setTimeout(() => {
             document.getElementById('preloader1').style.display = 'none';
@@ -185,6 +229,7 @@
 
         document.querySelector('.start-button').addEventListener('click', () => {
             document.getElementById('home-page').style.display = 'none';
+            document.querySelector('.polaroid-container').style.display = 'flex';  // Show polaroids
         });
     </script>
 </body>
