@@ -143,12 +143,14 @@
         .polaroid-container {
             display: none; /* Hidden by default */
             flex-wrap: wrap; /* Ensure images stay in a single row */
-            justify-content: flex-start;
-            overflow-y: scroll;  /* Horizontal scrolling */
-            margin-top: 20px;
             width: 100%;  /* Ensure it takes up full width */
             padding: 10px;
+            overflow-y: scroll; 
             scroll-behavior: smooth; /* Smooth scrolling */
+            justify-content: center;
+            margin-top: 20px;
+/* Enable vertical scrolling */
+    max-height: 80vh; 
         }
 
         .polaroid {
